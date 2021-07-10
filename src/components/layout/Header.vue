@@ -1,38 +1,42 @@
 <template>
-  <a-layout-header class="vue-admin-header">
-    <span class="vue-admin-dropdown">
-      <a-dropdown>
-        <span>
-          <a-avatar class="vue-admin-avatar" src="http://felis.top:8101/picture?md5=13e9d7857236becd43a82edc6ff834c8"/>
-          <span class="login-username">vue-admin</span>
+  <n-layout-header bordered>
+    <div class="vue-admin-header">
+      <n-dropdown :options="options">
+        <span class="drop-down">
+          <n-avatar src="http://felis.top:8101/picture?md5=13e9d7857236becd43a82edc6ff834c8"/>
+          <span class="drop-down-text">vue-admin</span>
         </span>
-        <template #overlay>
-          <a-menu>
-            <a-menu-item>退出登陆</a-menu-item>
-            <a-menu-item>修改密码</a-menu-item>
-          </a-menu>
-        </template>
-      </a-dropdown>
-    </span>
-  </a-layout-header>
+      </n-dropdown>
+    </div>
+  </n-layout-header>
 </template>
 <script>
 export default {
-  name:'Header'
+  name:'Header',
+  data(){
+    return {
+      options:[
+        {label:'修改密码'},
+        {label:'退出登陆'},
+      ]
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
 .vue-admin-header {
-  background: #fff;
-}
-.vue-admin-dropdown {
-  float: right;
-  cursor: pointer;
-  .login-username {
-    font-size: 16px;
-    color: #1890ff;
-    margin-left: 8px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  justify-content: flex-end;
+  .drop-down {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    .drop-down-text{
+      margin-left: 8px;
+    }
   }
 }
-
 </style>

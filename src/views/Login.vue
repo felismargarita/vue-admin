@@ -1,32 +1,71 @@
 <template>
   <div class="login-page">
     <div class="login-box">
-      <div class="system-title">vue-admin管理系统</div>
-      <a-form-model :model="form">
-        <a-form-model-item>
-          <a-input class="login-input" size="large" v-model="form.username">
-          </a-input>
-        </a-form-model-item>
-        <a-form-model-item>
-          <a-input class="login-input" size="large" v-model="form.password"/>
-        </a-form-model-item>
-      </a-form-model>
-      <a-button type="primary" block size="large">登陆</a-button>
+      <div class="system-title">vue-admin 管理系统</div>
+      <n-form ref="formRef" :model="form" :rules="rules">
+        <n-form-item path="username">
+          <n-input placeholder="" class="login-input" size="large" v-model:value="form.username">
+            <template #prefix>
+              <n-icon>
+                <User/>
+              </n-icon>
+            </template>
+          </n-input>
+        </n-form-item>
+        <n-form-item path="password">
+          <n-input type="password" placeholder="" class="login-input" size="large" v-model:value="form.password">
+            <template #prefix>
+              <n-icon>
+                <Lock/>
+              </n-icon>
+            </template>
+          </n-input>
+        </n-form-item>
+        <n-form-item>
+          <n-button type="primary"  attr-type="button" :loading="loading" block size="large" @click="login">登陆</n-button>
+        </n-form-item>
+      </n-form>
     </div>
   </div>
 </template>
 <script>
-import UserOutlined from '@ant-design/icons-vue/UserOutlined'
+import { User,Lock} from '@vicons/fa'
+
 export default {
   name:'Login',
-  components:{UserOutlined},
+  components:{User,Lock},
   data(){
     return {
+      loading:false,
       form:{
         username:'',
         password:''
+      },
+      rules:{
+        username:{
+          required:true,
+          message:'请输入账户名',
+          trigger: ['input', 'blur']
+        },
+        password:{
+          required:true,
+          message:'请输入密码',
+          trigger: ['input', 'blur']
+        }
       }
     }
+  },
+  methods:{
+    login(){
+      this.$refs['formRef'].validate((errors)=>{
+        if(!errors){
+          this.loading = true
+          setTimeout(()=>{
+            this.$router.push('/')
+          },3000*Math.random())
+        }
+      })
+    }  
   }
 
 }
@@ -41,21 +80,17 @@ export default {
   align-items: center;
   .login-box {
     width: 360px;
-    height: 400px;
+    height: 300px;
+    .n-form-item {
+      grid-template-rows:0;
+    }
     .system-title {
       font-size: 26px;
       font-weight: bold;
       color: #eee;
       text-align: center;
-    }
-    .login-input {
-      margin: 16px 0px;
-    }
-    .ant-input {
-      border-color: #294B6F;
-      background-color: #283443;
+      margin-bottom: 12px;
     }
   }
-
 }
 </style>

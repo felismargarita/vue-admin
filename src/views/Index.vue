@@ -1,13 +1,13 @@
 <template>
-  <a-layout>
+  <n-layout has-sider bordered>
     <Sider/>
-    <a-layout>
+    <n-layout>
       <Header/>
-      <a-layout-content class="vue-admin-content">
+      <n-layout-content class="vue-admin-content">
         <router-view/>
-      </a-layout-content>
-    </a-layout>
-  </a-layout>
+      </n-layout-content>
+    </n-layout>
+  </n-layout>
 </template>
 <script>
 import Header from '@/components/layout/Header'
