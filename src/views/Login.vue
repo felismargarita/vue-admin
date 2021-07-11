@@ -32,6 +32,7 @@
 import { User,Lock} from '@vicons/fa'
 import {ref} from 'vue'
 import router from '@/router/index'
+import * as session from '@/utils/session'
 export default {
   name:'Login',
   components:{User,Lock},
@@ -62,6 +63,7 @@ export default {
                     loading.value = true
                     setTimeout(()=>{
                       loading.value = false
+                      session.setLogin()
                       router.push('/')
                     },3000*Math.random())
                   }

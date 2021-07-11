@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Index from '../views/Index'
+import  * as session from '@/utils/session'
 const routes = [
   {
     path:'/login',
@@ -11,6 +12,9 @@ const routes = [
     name: 'index',
     component: Index,
     redirect:'page1',
+    meta:{
+      requireLogin:true
+    },
     children:[
       {
         path:'page1',
@@ -29,6 +33,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach((to,from)=>{
+  if(to.meta.requireLogin && !session.isLogin()){
+    return {name:'login'}
+  }
+  return true
 })
 
 export default router
