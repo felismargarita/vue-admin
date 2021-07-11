@@ -1,6 +1,6 @@
 <template>
-  <n-layout-sider class="vue-admin-side" collapsible bordered>
-    <n-menu theme="dark" :options="options">
+  <n-layout-sider :width="208" show-trigger inverted class="vue-admin-side" >
+    <n-menu inverted :options="options">
     </n-menu>
   </n-layout-sider>
 </template>

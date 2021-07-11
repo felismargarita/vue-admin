@@ -1,7 +1,7 @@
 <template>
   <n-layout-header bordered>
     <div class="vue-admin-header">
-      <n-dropdown :options="options">
+      <n-dropdown :options="options" @select="handleSelect">
         <span class="drop-down">
           <n-avatar src="http://felis.top:8101/picture?md5=13e9d7857236becd43a82edc6ff834c8"/>
           <span class="drop-down-text">vue-admin</span>
@@ -16,9 +16,16 @@ export default {
   data(){
     return {
       options:[
-        {label:'修改密码'},
-        {label:'退出登陆'},
+        {label:'修改密码',key:'password'},
+        {label:'退出登陆',key:'logout'},
       ]
+    }
+  },
+  methods:{
+    handleSelect(key){
+      if(key === 'logout'){
+        this.$router.push('/login')
+      }
     }
   }
 }
