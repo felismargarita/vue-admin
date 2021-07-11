@@ -11,20 +11,23 @@
   </n-layout-header>
 </template>
 <script>
+import {ref} from 'vue'
+import router from '@/router/index'
 export default {
   name:'Header',
-  data(){
-    return {
-      options:[
+  setup(){
+    const options = ref(
+      [
         {label:'修改密码',key:'password'},
         {label:'退出登陆',key:'logout'},
       ]
-    }
-  },
-  methods:{
-    handleSelect(key){
+    )
+    return {
+      options,
+      handleSelect(key){
       if(key === 'logout'){
-        this.$router.push('/login')
+          router.push('/login')
+        }
       }
     }
   }

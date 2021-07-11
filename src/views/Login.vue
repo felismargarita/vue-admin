@@ -30,18 +30,19 @@
 </template>
 <script>
 import { User,Lock} from '@vicons/fa'
-
+import {ref} from 'vue'
+import router from '@/router/index'
 export default {
   name:'Login',
   components:{User,Lock},
-  data(){
-    return {
-      loading:false,
-      form:{
+  setup(){
+    const loading = ref(false)
+    const form = ref({
         username:'',
         password:''
-      },
-      rules:{
+      })
+    const formRef = ref(null)
+    const rules = ref({
         username:{
           required:true,
           message:'请输入账户名',
@@ -52,22 +53,22 @@ export default {
           message:'请输入密码',
           trigger: ['input', 'blur']
         }
-      }
-    }
-  },
-  methods:{
-    login(){
-      this.$refs['formRef'].validate((errors)=>{
-        if(!errors){
-          this.loading = true
-          setTimeout(()=>{
-            this.$router.push('/')
-          },3000*Math.random())
-        }
       })
-    }  
+      return {
+        loading,form,formRef,rules,
+        login(){
+          formRef.value.validate((errors)=>{
+                  if(!errors){
+                    loading.value = true
+                    setTimeout(()=>{
+                      loading.value = false
+                      router.push('/')
+                    },3000*Math.random())
+                  }
+          })
+        }
+      }
   }
-
 }
 </script>
 <style lang="scss" scoped>
