@@ -11,12 +11,12 @@
   </n-layout-header>
 </template>
 <script>
-import {ref} from 'vue'
+import {reactive,defineComponent} from 'vue'
 import router from '@/router/index'
-export default {
+export default defineComponent({
   name:'Header',
   setup(){
-    const options = ref(
+    const options = reactive(
       [
         {label:'修改密码',key:'password'},
         {label:'退出登陆',key:'logout'},
@@ -31,7 +31,7 @@ export default {
       }
     }
   }
-}
+})
 </script>
 <style lang="scss" scoped>
 .vue-admin-header {

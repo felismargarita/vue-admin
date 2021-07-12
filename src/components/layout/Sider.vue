@@ -5,14 +5,14 @@
   </n-layout-sider>
 </template>
 <script>
-import {ref} from 'vue'
+import {reactive,defineComponent} from 'vue'
 import Logo from '../Logo.vue'
 import router from '@/router/index'
-export default ({
+export default defineComponent({
   name:'Sider',
   components:{Logo},
   setup(){
-    const options = ref(
+    const options = reactive(
       [
         {label:'菜单1',key:'menu1'},
         {label:'菜单2',key:'menu2'},

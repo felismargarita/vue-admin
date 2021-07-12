@@ -30,20 +30,20 @@
 </template>
 <script>
 import { User,Lock} from '@vicons/fa'
-import {ref} from 'vue'
+import {ref,defineComponent,reactive} from 'vue'
 import router from '@/router/index'
 import * as session from '@/utils/session'
-export default {
+export default defineComponent({
   name:'Login',
   components:{User,Lock},
   setup(){
     const loading = ref(false)
-    const form = ref({
+    const form = reactive({
         username:'',
         password:''
       })
     const formRef = ref(null)
-    const rules = ref({
+    const rules = reactive({
         username:{
           required:true,
           message:'请输入账户名',
@@ -71,7 +71,7 @@ export default {
         }
       }
   }
-}
+})
 </script>
 <style lang="scss" scoped>
 .login-page {

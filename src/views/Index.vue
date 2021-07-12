@@ -12,10 +12,11 @@
 <script>
 import Header from '@/components/layout/Header'
 import Sider from '@/components/layout/Sider'
-export default {
+import {defineComponent} from 'vue'
+export default defineComponent({
   name:'Layout',
   components:{Header,Sider}
-}
+})
 </script>
 <style scoped>
 .vue-admin-content {
