@@ -1,28 +1,25 @@
 <template>
   <n-layout-sider :width="208" :collapsed-width="0" show-trigger inverted class="vue-admin-side" >
-    <n-menu inverted :options="options">
+    <n-menu inverted @update:value="go" :options="options">
     </n-menu>
   </n-layout-sider>
 </template>
 <script>
-import {reactive,defineComponent} from 'vue'
+import {defineComponent,computed} from 'vue'
 import Logo from '../Logo.vue'
+import {useStore} from 'vuex'
 import router from '@/router/index'
 export default defineComponent({
   name:'Sider',
   components:{Logo},
   setup(){
-    const options = reactive(
-      [
-        {label:'菜单1',key:'menu1'},
-        {label:'菜单2',key:'menu2'},
-        {label:'菜单3',key:'menu3'},
-        ]
-    )
+    const store = useStore()
     return {
-      options,
-      go(name){
-        router.push({name})
+      options:computed(()=>store.state.menu.menus),
+      go(key,{path}){
+        if(path){
+          router.push(path)
+        }
       }
     }
 

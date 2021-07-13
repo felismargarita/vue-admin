@@ -4,15 +4,18 @@
       <n-dropdown :options="options" @select="handleSelect">
         <span class="drop-down">
           <n-avatar src="http://felis.top:8101/picture?md5=13e9d7857236becd43a82edc6ff834c8"/>
-          <span class="drop-down-text">vue-admin</span>
+          <n-skeleton v-if="loading" :width="80" :sharp="false" size="medium" />
+          <span v-else class="drop-down-text">{{user.nickname || user.username}}</span>
         </span>
       </n-dropdown>
     </div>
   </n-layout-header>
 </template>
 <script>
-import {reactive,defineComponent} from 'vue'
+import {reactive,defineComponent,computed} from 'vue'
 import router from '@/router/index'
+import {useStore} from 'vuex'
+import useAxios from '@/hooks/useAxios'
 export default defineComponent({
   name:'Header',
   setup(){
@@ -22,10 +25,18 @@ export default defineComponent({
         {label:'退出登陆',key:'logout'},
       ]
     )
+    const store = useStore()
+    const {fetch:logout} = useAxios({url:'/login/logout',method:'post'})
     return {
       options,
+      loading:computed(()=>{
+        const {nickname,username} = store.state.user.user
+        return !nickname || !username
+      }),
+      user:computed(()=>store.state.user.user),
       handleSelect(key){
       if(key === 'logout'){
+          logout()
           router.push('/login')
         }
       }

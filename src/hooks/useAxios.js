@@ -7,11 +7,15 @@ export default (config)=>{
   const data = ref(null)
   const fetch = async (conf)=>{
     try {
+      loading.value = true
       data.value = await axios(conf || config)
+      loading.value = false
       status.value = true
+      return data.value
     }catch(e){
       status.value = false
-      console.log(e)
+      loading.value = false
+      throw new Error(e)
     }
   }
   return {

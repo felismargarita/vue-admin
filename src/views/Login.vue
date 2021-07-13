@@ -33,11 +33,13 @@ import { User,Lock} from '@vicons/fa'
 import {ref,defineComponent,reactive} from 'vue'
 import router from '@/router/index'
 import * as session from '@/utils/session'
+import useAxios from '@/hooks/useAxios'
+import {NMessageProvider,useMessage} from 'naive-ui'
 export default defineComponent({
   name:'Login',
-  components:{User,Lock},
+  components:{User,Lock,NMessageProvider},
   setup(){
-    const loading = ref(false)
+    window.$message = useMessage()
     const form = reactive({
         username:'',
         password:''
@@ -55,17 +57,16 @@ export default defineComponent({
           trigger: ['input', 'blur']
         }
       })
+      const {loading,fetch} = useAxios({url:'/login/auth',data:form,method:'post'})
       return {
         loading,form,formRef,rules,
         login(){
           formRef.value.validate((errors)=>{
                   if(!errors){
-                    loading.value = true
-                    setTimeout(()=>{
-                      loading.value = false
+                    fetch().then(()=>{
                       session.setLogin()
                       router.push('/')
-                    },3000*Math.random())
+                    })
                   }
           })
         }

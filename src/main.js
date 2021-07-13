@@ -3,8 +3,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store' 
 import naive from 'naive-ui'
-
-const app = createApp(App)
+import directives from './directives/index'
+import hasPerm from './utils/hasPerm'
+export const app = createApp(App)
+directives.forEach(({name,...rest})=>{
+  app.directive(name,rest)
+})
 app.config.productionTip = false
-app.use(naive)
-app.use(store).use(router).mount('#app')
+app.config.globalProperties.hasPerm = hasPerm
+app.use(naive).use(store).use(router).mount('#app')
