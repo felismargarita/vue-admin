@@ -19,7 +19,7 @@ instance.interceptors.response.use(
     if(data.code === '100'){
       return data.info
     }else if(data.code === '20011'){
-      // window.location.href = '/login'
+      window.location.href = '/login'
       return Promise.reject()
     }
     else{

@@ -9,12 +9,11 @@ export const staticRoutes = [
     path: '/',
     name: 'index',
     component: Index,
-    // redirect:'page1',
     meta:{
       requireLogin:true
     }
   },
-
+  {path: '/404', component: import(/* webpackChunkName: "Page404" */ '../views/Page404')},
 ]
 
 
@@ -35,5 +34,9 @@ export const permissionRoutes = [
       menuCode:'log'
     }
   },
+  {
+    path:'/:pathMatch(.*)*',
+    redirect: '/404',
+  }
 ]
 

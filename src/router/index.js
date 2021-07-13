@@ -11,9 +11,9 @@ router.beforeEach(async (to,from)=>{
   if(to.meta.requireLogin && !session.isLogin()){
     return {name:'login'}
   }
-  if(!store.state.user.user.username){
+  if(to.name!=='login' && !store.state.user.user.username){
     await store.dispatch('getLoginInfo')
-    return to.path
+    return to
   }
   return true
 })
