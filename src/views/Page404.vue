@@ -27,7 +27,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   background: #2d3a4b;
-  /deep/ .n-result-header__title {
+  :deep() .n-result-header__title {
   color: #fff ;
 }
 }
