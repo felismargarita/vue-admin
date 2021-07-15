@@ -1,7 +1,7 @@
 
-import {ref} from 'vue'
+import {onMounted, ref} from 'vue'
 import axios from './axios'
-export default (config)=>{
+export default (config,immediate)=>{
   const loading = ref(false)
   const status = ref(false)
   const data = ref(null)
@@ -18,6 +18,11 @@ export default (config)=>{
       throw new Error(e)
     }
   }
+  onMounted(()=>{
+    if(immediate){
+      fetch()
+    }
+  })
   return {
     loading,
     status,

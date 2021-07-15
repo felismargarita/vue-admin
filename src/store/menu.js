@@ -15,7 +15,7 @@ const menuFilter = (menus,permissionList)=>{
     if(hasPerm(menu,permissionList)){
       const {children} = menu
       if(children && children.length){
-        rs.push({
+        ms.push({
           ...menu,
           children:menuFilter(children,permissionList)
         })

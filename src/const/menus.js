@@ -27,7 +27,8 @@ const menuWrapper = (menus = [])=>{
 const menus = [
   {label:'菜单1',key:'log',path:'/page1'},
   {label:'菜单2',path:'/page2'},
-  {label:'菜单3',path:'/page3'},
-  {label:'菜单4'},
+  {label:'Demo',children:[
+    {label:'数据表格',path:'/demo/datatable'},
+  ]},
 ]
 export default menuWrapper(menus)

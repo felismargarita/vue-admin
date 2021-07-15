@@ -35,6 +35,10 @@ export const permissionRoutes = [
     }
   },
   {
+    path:'/demo/datatable',
+    component:() => import(/* webpackChunkName: "DataTableDemo" */ '../views/DataTableDemo'),
+  },
+  {
     path:'/:pathMatch(.*)*',
     redirect: '/404',
   }

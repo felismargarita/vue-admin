@@ -27,6 +27,6 @@ export default defineComponent({
 </script>
 <style scoped>
 .vue-admin-content {
-  padding: 4px;
+  padding: 8px;
 }
 </style>
