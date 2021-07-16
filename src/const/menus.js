@@ -29,6 +29,7 @@ const menus = [
   {label:'菜单2',path:'/page2'},
   {label:'Demo',children:[
     {label:'数据表格',path:'/demo/datatable'},
+    {label:'JSX',path:'/demo/jsx'},
   ]},
 ]
 export default menuWrapper(menus)
