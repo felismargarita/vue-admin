@@ -30,11 +30,12 @@
 </template>
 <script>
 import { User,Lock} from '@vicons/fa'
-import {ref,defineComponent,reactive} from 'vue'
+import {ref,defineComponent,reactive, onMounted} from 'vue'
 import router from '@/router/index'
 import * as session from '@/utils/session'
 import useAxios from '@/hooks/useAxios'
 import {NMessageProvider,useMessage} from 'naive-ui'
+import {onBeforeRouteLeave} from 'vue-router'
 export default defineComponent({
   name:'Login',
   components:{User,Lock,NMessageProvider},
@@ -58,19 +59,28 @@ export default defineComponent({
         }
       })
       const {loading,fetch} = useAxios({url:'/login/auth',data:form,method:'post'})
-      return {
-        loading,form,formRef,rules,
-        login(){
-          formRef.value.validate((errors)=>{
-                  if(!errors){
-                    fetch().then(()=>{
-                      session.setLogin()
-                      router.push('/')
-                    })
-                  }
+
+    const login = ()=>{
+      formRef.value.validate((errors)=>{
+        if(!errors){
+          fetch().then(()=>{
+            session.setLogin()
+            router.push('/')
           })
         }
+      })
+    }
+    onMounted(()=>{
+      document.onkeydown = e =>{
+        if(e.code === 'Enter'){
+          login()
+        }
       }
+    })
+    onBeforeRouteLeave(()=>{
+      document.onkeydown = ()=>{}
+    })
+    return { loading,form,formRef,rules,login}
   }
 })
 </script>
