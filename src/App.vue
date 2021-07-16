@@ -10,8 +10,10 @@
 <script>
 import {defineComponent, provide} from 'vue'
 import useTheme from '@/hooks/useTheme'
+import {NConfigProvider,NMessageProvider,NLoadingBarProvider} from 'naive-ui'
 export default defineComponent({
   name:'App',
+  components:{NConfigProvider,NMessageProvider,NLoadingBarProvider},
   setup(){
     const {theme,toggleTheme} = useTheme()
     provide('theme',theme)

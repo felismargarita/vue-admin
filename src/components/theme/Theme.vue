@@ -12,8 +12,9 @@
 <script>
 import { computed, defineComponent,inject } from 'vue'
 import {Brightness2Outlined,Brightness5Filled} from '@vicons/material'
+import {NIcon,NTooltip} from 'naive-ui'
 export default defineComponent({
-  components:{Brightness2Outlined,Brightness5Filled},
+  components:{NIcon,NTooltip,Brightness2Outlined,Brightness5Filled},
   setup() {
     const toggleTheme = inject('toggleTheme')
     const theme = inject('theme')

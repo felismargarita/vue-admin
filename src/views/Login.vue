@@ -34,11 +34,11 @@ import {ref,defineComponent,reactive, onMounted} from 'vue'
 import router from '@/router/index'
 import * as session from '@/utils/session'
 import useAxios from '@/hooks/useAxios'
-import {NMessageProvider,useMessage} from 'naive-ui'
+import {NMessageProvider,useMessage,NForm,NFormItem,NIcon,NInput,NButton} from 'naive-ui'
 import {onBeforeRouteLeave} from 'vue-router'
 export default defineComponent({
   name:'Login',
-  components:{User,Lock,NMessageProvider},
+  components:{User,Lock,NMessageProvider,NForm,NFormItem,NIcon,NInput,NButton},
   setup(){
     window.$message = useMessage()
     const form = reactive({

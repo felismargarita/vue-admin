@@ -6,12 +6,12 @@
 </template>
 <script>
 import {defineComponent,computed} from 'vue'
-import Logo from '../Logo.vue'
 import {useStore} from 'vuex'
 import router from '@/router/index'
+import {NLayoutSider,NMenu} from 'naive-ui'
 export default defineComponent({
   name:'Sider',
-  components:{Logo},
+  components:{NLayoutSider,NMenu},
   setup(){
     const store = useStore()
     return {

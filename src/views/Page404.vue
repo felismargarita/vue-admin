@@ -9,8 +9,10 @@
 </template>
 <script>
 import {defineComponent} from 'vue'
+import {NButton,NResult} from 'naive-ui'
 import router from '@/router/index'
 export default defineComponent({
+  components:{NButton,NResult},
   setup() {
     return {
       back(){

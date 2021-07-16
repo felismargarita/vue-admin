@@ -14,10 +14,10 @@ import Header from '@/components/layout/Header'
 import Sider from '@/components/layout/Sider'
 import {defineComponent, onMounted} from 'vue'
 import {useStore} from 'vuex'
-import {useLoadingBar} from 'naive-ui'
+import {useLoadingBar,NLayout,NLayoutContent} from 'naive-ui'
 export default defineComponent({
   name:'Layout',
-  components:{Header,Sider},
+  components:{NLayout,NLayoutContent,Header,Sider},
   setup(){
     window.$loadingBar = useLoadingBar()
     const store = useStore()

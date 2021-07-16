@@ -18,9 +18,10 @@ import router from '@/router/index'
 import {useStore} from 'vuex'
 import useAxios from '@/hooks/useAxios'
 import Theme from '@/components/theme/Theme'
+import {NDropdown,NAvatar,NSkeleton,NLayoutHeader} from 'naive-ui'
 export default defineComponent({
   name:'Header',
-  components:{Theme},
+  components:{NDropdown,NAvatar,NSkeleton,NLayoutHeader,Theme},
   setup(){
     const options = reactive(
       [

@@ -4,10 +4,12 @@
   </div>
 </template>
 <script>
-import {defineComponent,computed} from 'vue'
+import {defineComponent} from 'vue'
 import useDataTable from '@/hooks/useDataTable'
+import {NDataTable} from 'naive-ui'
 export default defineComponent({
   name:'DataTableDemo',
+  components:{NDataTable},
   setup(){
     const {data,loading} = useDataTable()
     return {
