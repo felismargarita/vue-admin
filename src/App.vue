@@ -1,27 +1,16 @@
 <template>
-<n-config-provider :theme="theme">
   <n-message-provider>
     <n-loading-bar-provider>
       <router-view/>
     </n-loading-bar-provider>
   </n-message-provider>
-</n-config-provider>
 </template>
 <script>
-import {defineComponent, provide} from 'vue'
-import useTheme from '@/hooks/useTheme'
-import {NConfigProvider,NMessageProvider,NLoadingBarProvider} from 'naive-ui'
+import {defineComponent} from 'vue'
+import {NMessageProvider,NLoadingBarProvider} from 'naive-ui'
 export default defineComponent({
   name:'App',
-  components:{NConfigProvider,NMessageProvider,NLoadingBarProvider},
-  setup(){
-    const {theme,toggleTheme} = useTheme()
-    provide('theme',theme)
-    provide('toggleTheme',toggleTheme)
-    return {
-      theme
-    }
-  }
+  components:{NMessageProvider,NLoadingBarProvider}
 })
 </script>
 <style lang="scss">
