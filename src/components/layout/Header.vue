@@ -1,6 +1,7 @@
 <template>
   <n-layout-header bordered>
     <div class="vue-admin-header">
+      <Theme/>
       <n-dropdown :options="options" @select="handleSelect">
         <span class="drop-down">
           <n-avatar src="http://felis.top:8101/picture?md5=13e9d7857236becd43a82edc6ff834c8"/>
@@ -16,8 +17,10 @@ import {reactive,defineComponent,computed} from 'vue'
 import router from '@/router/index'
 import {useStore} from 'vuex'
 import useAxios from '@/hooks/useAxios'
+import Theme from '@/components/theme/Theme'
 export default defineComponent({
   name:'Header',
+  components:{Theme},
   setup(){
     const options = reactive(
       [
@@ -50,7 +53,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
   padding: 0 48px;
-  justify-content: flex-end;
+  justify-content: space-between;
   .drop-down {
     display: inline-flex;
     align-items: center;

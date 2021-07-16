@@ -1230,6 +1230,11 @@
   resolved "https://registry.nlark.com/@vicons/fa/download/@vicons/fa-0.10.0.tgz#d91d5ca7cecbc7ca25e22f38c6b8340063826e32"
   integrity sha1-2R1cp87Lx8ol4i84xrg0AGOCbjI=
 
+"@vicons/material@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.nlark.com/@vicons/material/download/@vicons/material-0.10.0.tgz#1213a111f729476ac053f883155b69c2d5262f48"
+  integrity sha1-EhOhEfcpR2rAU/iDFVtpwtUmL0g=
+
 "@vue/babel-helper-vue-jsx-merge-props@^1.2.1":
   version "1.2.1"
   resolved "https://registry.npm.taobao.org/@vue/babel-helper-vue-jsx-merge-props/download/@vue/babel-helper-vue-jsx-merge-props-1.2.1.tgz#31624a7a505fb14da1d58023725a4c5f270e6a81"
@@ -5651,6 +5656,11 @@ mixin-deep@^1.2.0:
   integrity sha1-2Rzv1i0UNsoPQWIOJRKI1CAJne8=
   dependencies:
     minimist "^1.2.5"
+
+moment@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.npm.taobao.org/moment/download/moment-2.29.1.tgz?cache=0&sync_timestamp=1601983320283&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmoment%2Fdownload%2Fmoment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha1-sr52n6MZQL6e7qZGnAdeNQBvo9M=
 
 move-concurrently@^1.0.1:
   version "1.0.1"

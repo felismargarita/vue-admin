@@ -1,1 +1,1 @@
-export const VIEW_CODE = 'list' 
+export const VIEW_CODE = 'list'
