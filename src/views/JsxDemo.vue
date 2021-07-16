@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue'
 import {NButton,useMessage} from 'naive-ui'
 export default defineComponent({
-  setup() {
+  setup(props) {
     const message = useMessage();
     return ()=>(
       <div>
