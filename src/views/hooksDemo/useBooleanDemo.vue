@@ -4,7 +4,6 @@
   <button @click="setTrue">setTrue</button>
   <button @click="setFalse">setFalse</button>
   <button @click="toggle">toggle</button>
-  <hr/>
 </template>
 <script>
 import {defineComponent} from 'vue'

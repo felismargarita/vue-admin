@@ -48,7 +48,7 @@ export const permissionRoutes = [
   },
   {
     path:'/demo/hooks',
-    component:() => import(/* webpackChunkName: "HooksDemo" */ '../views/HooksDemo'),
+    component:() => import(/* webpackChunkName: "HooksDemo" */ '../views/hooksDemo/HooksDemo'),
   },
   {
     path:'/:pathMatch(.*)*',
