@@ -12,7 +12,7 @@ export default defineComponent({
     const count = ref(0)
     const {reset,clear} = useInterval(()=>{
       count.value ++
-    },2000,{immediate:true,autoClear:8000})
+    },2000,{immediate:true})
     return {
     reset,clear,count
     }
