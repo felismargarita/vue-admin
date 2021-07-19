@@ -25,8 +25,8 @@ export default defineComponent({
   setup(){
     const options = reactive(
       [
-        {label:'修改密码',key:'password'},
-        {label:'退出登陆',key:'logout'},
+        {label:'个人中心',key:'password'},
+        {label:'退出登录',key:'logout'},
       ]
     )
     const store = useStore()
