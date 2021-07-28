@@ -1,5 +1,5 @@
 <template>
-  <div>{{position}}</div>
+  <div>鼠标当前位置：{{position}}</div>
 </template>
 <script>
   import {defineComponent} from 'vue'
